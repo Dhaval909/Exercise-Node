@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Your Email</title>
+</head>
+<body>
+  <h1>Verify Your Email</h1>
+  <p>Please click the button below to verify your email address:</p>
+  <form id="verifyForm" action="/auth/verify-email" method="get">
+    <input type="hidden" name="token" id="tokenInput">
+    <button type="button" onclick="verifyEmail()">Verify Email</button>
+  </form>
+
+  <script>
+    function verifyEmail() {
+      const token = '<%= token %>';      
+      document.getElementById('tokenInput').value = token;
+      document.getElementById('verifyForm').submit();
+    }
+  </script>
+</body>
+</html>
